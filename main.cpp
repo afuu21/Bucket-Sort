@@ -222,7 +222,7 @@ void up_bucket_draw(bucket bu)
 }
 //================================================================================================================================================
 
-//_____________________________________SORTING LOGIC FOR RADIX SORT__________________________________________________________
+//_____________________________________SORTING LOGIC FOR BUCKET SORT__________________________________________________________
 
 void move_to_bucket(int ball_i, int destination_bucket)
 {
@@ -384,12 +384,12 @@ MOVE: move_to_bucket(currentBall_i, radix);
 void display_instructions()
 {
     //about radix sort
-    bitmap_output(360, 525, "About Radix Sort", GLUT_BITMAP_HELVETICA_18);
-    bitmap_output(10, 495, "Radix sort is a non-comparative integer sorting algorithm that sorts elements based on iterations over each ", GLUT_BITMAP_9_BY_15);
-    bitmap_output(10, 470, "radix of a set of numbers. Complexity of this algorithm depends on the number of digits of the elements. This ", GLUT_BITMAP_9_BY_15);
-    bitmap_output(10, 445, "determines the number of iterations. The complexity of radix sort is o(nk) where k is the number of digits.", GLUT_BITMAP_9_BY_15);
+    bitmap_output(360, 525, "About Bucket Sort", GLUT_BITMAP_HELVETICA_18);
+    bitmap_output(10, 495, "Bucket sort is a non-comparative integer sorting algorithm that sorts elements based on iterations over each ", GLUT_BITMAP_9_BY_15);
+    bitmap_output(10, 470, "rad of a set of numbers. Complexity of this algorithm depends on the number of digits of the elements. This ", GLUT_BITMAP_9_BY_15);
+    bitmap_output(10, 445, "determines the number of iterations. The complexity of bucket sort is o(nk) where k is the number of digits.", GLUT_BITMAP_9_BY_15);
 
-    bitmap_output(380, 400, "Radix Sort Steps", GLUT_BITMAP_HELVETICA_18);
+    bitmap_output(380, 400, "Bucket Sort Steps", GLUT_BITMAP_HELVETICA_18);
     bitmap_output(200, 370, "1) Prepare buckets 0-9 corresponding to each index base 10", GLUT_BITMAP_9_BY_15);
     bitmap_output(200, 345, "2) Take the least significant digit of each key and place the number in the right bucket", GLUT_BITMAP_9_BY_15);
     bitmap_output(200, 320, "3) Starting from bucket 0 to 9 remove keys in order (FIFO Queue)", GLUT_BITMAP_9_BY_15);
@@ -404,13 +404,17 @@ void display_instructions()
 void front()//HOMEPAGE
 {
     glColor3f(0.0, 0.0, 1.0);
-    bitmap_output(340, 665, "RADIX SORT DEMO", GLUT_BITMAP_TIMES_ROMAN_24);
+    bitmap_output(340, 665, "BUCKET SORT DEMO", GLUT_BITMAP_TIMES_ROMAN_24);
     glBegin(GL_LINE_LOOP);
     glVertex2f(330, 660);
     glVertex2f(570, 660);
     glEnd();
-    bitmap_output(390, 630, "Ayush Hate", GLUT_BITMAP_TIMES_ROMAN_24);
-    bitmap_output(380, 595, "1CR15CS036", GLUT_BITMAP_HELVETICA_18);
+    bitmap_output(110, 630, "Manasa", GLUT_BITMAP_TIMES_ROMAN_24);
+    bitmap_output(100, 595, "4VV19CS084", GLUT_BITMAP_HELVETICA_18);
+    bitmap_output(410, 630, "Mamatha", GLUT_BITMAP_TIMES_ROMAN_24);
+    bitmap_output(400, 595, "4VV19CS082", GLUT_BITMAP_HELVETICA_18);
+    bitmap_output(710, 630, "Manaswi", GLUT_BITMAP_TIMES_ROMAN_24);
+    bitmap_output(700, 595, "4VV19CS085", GLUT_BITMAP_HELVETICA_18);
     glColor3f(0.0, 1.0, 0.0);
     display_instructions();
     glColor3f(1.0, 0.0, 0.0);
@@ -426,7 +430,7 @@ void front()//HOMEPAGE
 void buttons()//Buttons
 {
     glColor3f(0.0, 0.0, 1.0);
-    bitmap_output(330, 665, "RADIX SORT COMPLETE!!", GLUT_BITMAP_TIMES_ROMAN_24);
+    bitmap_output(330, 665, "BUCKET SORT COMPLETE!!", GLUT_BITMAP_TIMES_ROMAN_24);
 
     glColor3f(1, 0, 0);
     bitmap_output(320, 600, "Click on a menu option to continue!", GLUT_BITMAP_9_BY_15);
@@ -618,14 +622,14 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowPosition(50, 50);
     glutInitWindowSize(1000, 700);
-    printf("RADIX SORT\n\nThis program will sort any %d numbers. Enter %d numbers:\n\n", MAX, MAX);
+    printf("BUCKET SORT\n\nThis program will sort any %d numbers. Enter %d numbers:\n\n", MAX, MAX);
     for (int i = 0; i < MAX; i++)
     {
         printf("Element %d: ", i + 1);
         scanf_s("%d", &initial[i]);
         a[i] = initialTEMP[i] = initial[i];
     }
-    glutCreateWindow("RADIX SORT VISUALIZER");
+    glutCreateWindow("BUCKET SORT VISUALIZER");
     init();
     initialise();
     glutDisplayFunc(display);
@@ -635,4 +639,3 @@ int main(int argc, char** argv)
     glutMainLoop();
     return 0;
 }
-
